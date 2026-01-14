@@ -155,7 +155,7 @@ export function ResetButton({ variant = 'full', className }: ResetButtonProps) {
             <h3 className="font-semibold text-warmgray-900 mb-2">{variantText.title}</h3>
             <p className="text-sm text-warmgray-600 mb-4">{variantText.description}</p>
 
-            {status === 'confirming' && (
+            {(status === 'confirming' || status === 'resetting') && (
               <div className="space-y-3">
                 <div className="rounded-lg bg-yellow-50 p-3">
                   <div className="flex items-start gap-2">
