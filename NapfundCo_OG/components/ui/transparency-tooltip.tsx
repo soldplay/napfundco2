@@ -34,7 +34,7 @@ export function TransparencyTooltip({
     const newTrace = createTraceForElement(elementId, reason, {
       userHistory: lastViewedProducts,
       preferences: {
-        petType: preferredPetType,
+        petType: preferredPetType ?? undefined,
       },
       timeOfDay,
     })

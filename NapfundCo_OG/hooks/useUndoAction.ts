@@ -50,10 +50,7 @@ export function useUndoAction() {
         }
       }, UNDO_TIMEOUT)
 
-      // Execute action if autoExecute is true
-      if (autoExecute && action.undo) {
-        // Action is already executed, undo function will reverse it
-      }
+      // Action is already executed, undo function will reverse it if user clicks undo
     },
     []
   )

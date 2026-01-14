@@ -84,7 +84,7 @@ export function useRecommendationText(): string | null {
  */
 export function useIsMobile(): boolean {
   const context = useACGSafe()
-  return context?.device === 'mobile' ?? false
+  return context?.device === 'mobile' || false
 }
 
 /**

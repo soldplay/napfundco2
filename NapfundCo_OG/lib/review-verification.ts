@@ -19,6 +19,7 @@ interface PurchaseRecord {
   productId: string
   purchaseDate: string
   orderId: string
+  userId: string
 }
 
 const PURCHASE_STORAGE_KEY = 'napfco_purchases'
@@ -176,6 +177,7 @@ export function simulatePurchase(
       productId,
       purchaseDate: new Date().toISOString(),
       orderId,
+      userId,
     })
 
     localStorage.setItem(PURCHASE_STORAGE_KEY, JSON.stringify(purchases))

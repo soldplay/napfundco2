@@ -9,7 +9,10 @@ export interface DecisionTrace {
   timestamp: number
   context: {
     userHistory?: string[]
-    preferences?: Record<string, unknown>
+    preferences?: {
+      petType?: string
+      [key: string]: string | undefined
+    }
     timeOfDay?: string
     device?: string
   }
