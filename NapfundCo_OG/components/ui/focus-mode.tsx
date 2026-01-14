@@ -49,8 +49,13 @@ export function FocusMode() {
     const hiddenElements = document.querySelectorAll('[data-focus-hidden="true"]')
     hiddenElements.forEach((el) => {
       const htmlEl = el as HTMLElement
-      const originalDisplay = htmlEl.getAttribute('data-focus-original-display') || ''
-      htmlEl.style.display = originalDisplay
+      const originalDisplay = htmlEl.getAttribute('data-focus-original-display')
+      // Wenn originalDisplay leer ist, entferne display style komplett
+      if (originalDisplay === '' || originalDisplay === null) {
+        htmlEl.style.removeProperty('display')
+      } else {
+        htmlEl.style.display = originalDisplay
+      }
       htmlEl.removeAttribute('data-focus-hidden')
       htmlEl.removeAttribute('data-focus-original-display')
     })

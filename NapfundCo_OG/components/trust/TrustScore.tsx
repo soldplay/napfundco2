@@ -18,12 +18,8 @@ export function TrustScoreDisplay() {
   const [isDismissed, setIsDismissed] = useState(false)
   const { isMobile, isTablet } = useDevice()
 
-  useEffect(() => {
-    // Auf Mobile standardmäßig minimiert starten
-    if (isMobile) {
-      setIsMinimized(true)
-    }
-  }, [isMobile])
+  // Trust Score ist standardmäßig immer sichtbar (nicht automatisch minimiert)
+  // Der Benutzer kann ihn manuell minimieren
 
   useEffect(() => {
     const score = trustCalculator.getDefaultTrustScore()
