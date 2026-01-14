@@ -1,4 +1,5 @@
 {
+  "rootDirectory": "NapfundCo_OG",
   "buildCommand": "chmod +x build.sh && bash build.sh",
   "devCommand": "cd NapfundCo_OG && npm run dev",
   "installCommand": "cd NapfundCo_OG && npm ci",
