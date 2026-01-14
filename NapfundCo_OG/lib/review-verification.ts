@@ -162,6 +162,41 @@ export function getVerifiedReviews(productId: string): VerifiedReview[] {
 }
 
 /**
+ * Holt alle verifizierten Bewertungen (alle Produkte)
+ */
+export function getAllVerifiedReviews(): VerifiedReview[] {
+  try {
+    const stored = localStorage.getItem(REVIEW_STORAGE_KEY)
+    if (!stored) return []
+
+    const reviews: VerifiedReview[] = JSON.parse(stored)
+    return reviews.filter((r) => r.isVerified).sort((a, b) => 
+      new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    )
+  } catch {
+    return []
+  }
+}
+
+/**
+ * Berechnet die durchschnittliche Bewertung aller verifizierten Reviews
+ */
+export function getAverageRating(): number | null {
+  const reviews = getAllVerifiedReviews()
+  if (reviews.length === 0) return null
+  
+  const sum = reviews.reduce((acc, r) => acc + r.rating, 0)
+  return Math.round((sum / reviews.length) * 10) / 10
+}
+
+/**
+ * Gibt die Anzahl der verifizierten Reviews zurück
+ */
+export function getVerifiedReviewCount(): number {
+  return getAllVerifiedReviews().length
+}
+
+/**
  * Simuliert einen Kauf (für Testzwecke)
  */
 export function simulatePurchase(

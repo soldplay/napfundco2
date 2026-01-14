@@ -132,10 +132,10 @@ export function Hero() {
                       aria-hidden="true"
                     />
                   ))}
-                  <span className="ml-1 font-semibold text-warmgray-900">4.9</span>
+                  <span className="ml-1 font-semibold text-warmgray-900">Top bewertet</span>
                 </div>
                 <p className="text-sm text-warmgray-600">
-                  Über <strong>10.000+</strong> zufriedene Kunden
+                  Zufriedene Kunden deutschlandweit
                 </p>
               </div>
             </div>

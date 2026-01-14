@@ -64,7 +64,7 @@ const team = [
 const milestones = [
   { year: '2020', event: 'Gründung von Napf&Co' },
   { year: '2021', event: 'Erste eigene Produktlinie für Hunde' },
-  { year: '2022', event: '10.000 zufriedene Kunden' },
+  { year: '2022', event: 'Erste zufriedene Stammkunden' },
   { year: '2023', event: 'Erweiterung um Katzen- und Pferdefutter' },
   { year: '2024', event: 'TikTok Shop Launch' },
 ]
@@ -117,7 +117,7 @@ export function AboutPage() {
                   für den menschlichen Verzehr geeignet wären.
                 </p>
                 <p>
-                  Heute vertrauen über 10.000 Tierbesitzer auf unsere Produkte.
+                  Heute vertrauen zahlreiche Tierbesitzer auf unsere Produkte.
                   Und wir arbeiten jeden Tag daran, noch besser zu werden - für
                   glückliche, gesunde Tiere.
                 </p>

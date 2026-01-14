@@ -39,6 +39,7 @@ export function TrustScoreDisplay() {
   if (isMinimized) {
     return (
       <motion.button
+        data-popup="true"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         onClick={() => setIsMinimized(false)}
@@ -64,6 +65,7 @@ export function TrustScoreDisplay() {
   return (
     <AnimatePresence>
       <motion.div
+        data-popup="true"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 20 }}

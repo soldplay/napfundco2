@@ -81,6 +81,7 @@ export function AccessibilityControls() {
             )}
             
             <motion.div
+              data-popup="true"
               initial={{ opacity: 0, y: isMobile ? 100 : 0, x: isMobile ? 0 : 100 }}
               animate={{ opacity: 1, y: 0, x: 0 }}
               exit={{ opacity: 0, y: isMobile ? 100 : 0, x: isMobile ? 0 : 100 }}
