@@ -1,8 +1,8 @@
 {
-  "buildCommand": "chmod +x build.sh && bash build.sh",
-  "devCommand": "cd NapfundCo_OG && npm run dev",
-  "installCommand": "cd NapfundCo_OG && npm ci",
-  "outputDirectory": "NapfundCo_OG/.next",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm ci",
+  "outputDirectory": ".next",
   "framework": "nextjs"
 }
 
