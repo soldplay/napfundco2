@@ -141,15 +141,8 @@ export function VerifiedReviewForm({
           Nur Käufer, die das Produkt mindestens 7 Tage genutzt haben, können eine verifizierte
           Bewertung abgeben.
         </p>
-        <Button onClick={checkPurchaseStatus} disabled={status === 'checking'}>
-          {status === 'checking' ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Wird geprüft...
-            </>
-          ) : (
-            'Berechtigung prüfen'
-          )}
+        <Button onClick={checkPurchaseStatus}>
+          Berechtigung prüfen
         </Button>
       </div>
     )
