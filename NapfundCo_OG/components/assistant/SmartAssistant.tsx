@@ -161,10 +161,10 @@ export function SmartAssistant() {
                     <div className="mt-4 space-y-2 text-left">
                       <p className="text-xs font-medium text-warmgray-700">Beispiele:</p>
                       <ul className="space-y-1 text-xs text-warmgray-600">
-                        <li>• "Günstiges Hundefutter"</li>
-                        <li>• "Premium Katzenfutter"</li>
-                        <li>• "Hält 2 Jahre"</li>
-                        <li>• "Für Allergiker"</li>
+                        <li>• &ldquo;Günstiges Hundefutter&rdquo;</li>
+                        <li>• &ldquo;Premium Katzenfutter&rdquo;</li>
+                        <li>• &ldquo;Hält 2 Jahre&rdquo;</li>
+                        <li>• &ldquo;Für Allergiker&rdquo;</li>
                       </ul>
                     </div>
                   </div>
