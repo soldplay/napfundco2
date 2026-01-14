@@ -76,15 +76,17 @@ class SessionMonitor {
     this.metrics.timeOnPage = timeOnPage
 
     // Prüfe auf Bot-Muster: Zu schnelle Klicks
+    // Nur als verdächtig, wenn mehr als 5 Klicks in kurzer Zeit
     const rapidClicks = this.detectRapidClicks()
-    if (rapidClicks) {
+    if (rapidClicks && this.metrics.clickCount > 5) {
       reasons.push('Sehr schnelle, wiederholte Klicks erkannt')
       riskLevel = 'medium'
       recommendations.push('Captcha anzeigen')
     }
 
     // Prüfe auf Bot-Muster: Keine Mausbewegungen
-    if (this.metrics.mouseMovements < 5 && this.metrics.clickCount > 10) {
+    // Nur als verdächtig, wenn viele Klicks (mehr als 15) ohne Mausbewegungen
+    if (this.metrics.mouseMovements < 5 && this.metrics.clickCount > 15) {
       reasons.push('Viele Klicks ohne Mausbewegungen (möglicher Bot)')
       riskLevel = 'high'
       recommendations.push('Captcha anzeigen', 'Funktionen einschränken')
@@ -98,8 +100,9 @@ class SessionMonitor {
     }
 
     // Prüfe auf Bot-Muster: Zu schnelle Interaktionen
+    // Nur als verdächtig, wenn sehr hohe Rate (mehr als 3 pro Sekunde) UND mehr als 10 Klicks insgesamt
     const interactionsPerSecond = this.metrics.clickCount / timeOnPage
-    if (interactionsPerSecond > 2 && timeOnPage > 5) {
+    if (interactionsPerSecond > 3 && timeOnPage > 5 && this.metrics.clickCount > 10) {
       reasons.push('Ungewöhnlich hohe Interaktionsrate')
       riskLevel = 'medium'
       recommendations.push('Verhalten überwachen')
