@@ -1,0 +1,142 @@
+{
+  "packages": [
+    {
+      "id": "starter-hund",
+      "name": "Starter Paket Hund",
+      "description": "Perfekt für kleine bis mittlere Hunde. Enthält eine ausgewogene Mischung aus Nass- und Trockenfutter.",
+      "petType": "hund",
+      "icon": "🐕",
+      "products": [
+        { "productId": "hund-premium-rind-400g", "quantity": 6 },
+        { "productId": "hund-premium-huhn-400g", "quantity": 6 },
+        { "productId": "hund-trainings-snacks-200g", "quantity": 2 }
+      ],
+      "basePrice": 49.99,
+      "discountPercent": 2,
+      "duration": 1,
+      "deliveryFrequency": "monatlich",
+      "features": [
+        "2% Rabatt auf alle Produkte",
+        "Kostenlose Lieferung jeden Monat",
+        "Flexible Pause oder Kündigung",
+        "Wechselnde Sorten möglich"
+      ],
+      "recommended": false
+    },
+    {
+      "id": "premium-hund",
+      "name": "Premium Paket Hund",
+      "description": "Ideal für größere Hunde oder Mehrhunde-Haushalte. Mehr Abwechslung, mehr Wert.",
+      "petType": "hund",
+      "icon": "🐕",
+      "products": [
+        { "productId": "hund-premium-rind-400g", "quantity": 12 },
+        { "productId": "hund-premium-huhn-400g", "quantity": 12 },
+        { "productId": "hund-trockenfutter-lamm-2kg", "quantity": 1 },
+        { "productId": "hund-trainings-snacks-200g", "quantity": 4 }
+      ],
+      "basePrice": 89.99,
+      "discountPercent": 2,
+      "duration": 1,
+      "deliveryFrequency": "monatlich",
+      "features": [
+        "2% Rabatt auf alle Produkte",
+        "Kostenlose Lieferung jeden Monat",
+        "Flexible Pause oder Kündigung",
+        "Größere Mengen = besserer Wert",
+        "Priority-Versand"
+      ],
+      "recommended": true
+    },
+    {
+      "id": "starter-katze",
+      "name": "Starter Paket Katze",
+      "description": "Die perfekte Grundversorgung für Ihre Samtpfote mit hochwertigen Zutaten.",
+      "petType": "katze",
+      "icon": "🐈",
+      "products": [
+        { "productId": "katze-premium-lachs-200g", "quantity": 10 },
+        { "productId": "katze-lachs-streifen-50g", "quantity": 2 }
+      ],
+      "basePrice": 34.99,
+      "discountPercent": 2,
+      "duration": 1,
+      "deliveryFrequency": "monatlich",
+      "features": [
+        "2% Rabatt auf alle Produkte",
+        "Kostenlose Lieferung jeden Monat",
+        "Flexible Pause oder Kündigung",
+        "Wechselnde Sorten möglich"
+      ],
+      "recommended": false
+    },
+    {
+      "id": "premium-katze",
+      "name": "Premium Paket Katze",
+      "description": "Vollständige Ernährung mit Nass- und Trockenfutter für anspruchsvolle Katzen.",
+      "petType": "katze",
+      "icon": "🐈",
+      "products": [
+        { "productId": "katze-premium-lachs-200g", "quantity": 20 },
+        { "productId": "katze-trockenfutter-adult-2kg", "quantity": 1 },
+        { "productId": "katze-lachs-streifen-50g", "quantity": 4 }
+      ],
+      "basePrice": 69.99,
+      "discountPercent": 2,
+      "duration": 1,
+      "deliveryFrequency": "monatlich",
+      "features": [
+        "2% Rabatt auf alle Produkte",
+        "Kostenlose Lieferung jeden Monat",
+        "Flexible Pause oder Kündigung",
+        "Größere Mengen = besserer Wert",
+        "Priority-Versand"
+      ],
+      "recommended": true
+    },
+    {
+      "id": "starter-pferd",
+      "name": "Wellness Paket Pferd",
+      "description": "Hochwertige Grundversorgung für Freizeitpferde mit dem beliebten Wellness Müsli.",
+      "petType": "pferd",
+      "icon": "🐴",
+      "products": [
+        { "productId": "pferd-wellness-muesli-15kg", "quantity": 1 }
+      ],
+      "basePrice": 29.99,
+      "discountPercent": 2,
+      "duration": 1,
+      "deliveryFrequency": "monatlich",
+      "features": [
+        "2% Rabatt auf alle Produkte",
+        "Kostenlose Lieferung jeden Monat",
+        "Flexible Pause oder Kündigung",
+        "Stalllieferung möglich"
+      ],
+      "recommended": true
+    }
+  ],
+  "benefits": [
+    {
+      "icon": "Percent",
+      "title": "2% Ersparnis",
+      "description": "Dauerhaft 2% Rabatt auf alle Abo-Produkte"
+    },
+    {
+      "icon": "Truck",
+      "title": "Kostenloser Versand",
+      "description": "Jeden Monat gratis geliefert"
+    },
+    {
+      "icon": "Calendar",
+      "title": "Flexibel pausieren",
+      "description": "Jederzeit pausieren oder anpassen"
+    },
+    {
+      "icon": "Shield",
+      "title": "Jederzeit kündbar",
+      "description": "Keine Mindestlaufzeit, kein Risiko"
+    }
+  ]
+}
+

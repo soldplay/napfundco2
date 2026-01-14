@@ -1,0 +1,12 @@
+{
+  "name": "napf-co-root",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "bash build.sh",
+    "dev": "cd NapfundCo_OG && npm run dev",
+    "start": "cd NapfundCo_OG && npm run start",
+    "install": "cd NapfundCo_OG && npm ci"
+  }
+}
+

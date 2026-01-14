@@ -1,0 +1,82 @@
+{
+  "posts": [
+    {
+      "id": "richtige-ernaehrung-hund",
+      "slug": "richtige-ernaehrung-fuer-deinen-hund",
+      "title": "Die richtige Ernährung für deinen Hund: Ein Leitfaden",
+      "excerpt": "Erfahre, worauf es bei der Hundeernährung wirklich ankommt und wie du das perfekte Futter für deinen Vierbeiner findest.",
+      "content": "Die Ernährung spielt eine zentrale Rolle für die Gesundheit und das Wohlbefinden deines Hundes...",
+      "category": "Hundeernährung",
+      "author": "Dr. Maria Schmitt",
+      "authorRole": "Tierärztin & Ernährungsberaterin",
+      "publishedAt": "2024-01-15",
+      "readingTime": 8,
+      "image": "/images/blog/hund-ernaehrung.jpg",
+      "tags": ["Hundefutter", "Ernährung", "Gesundheit", "Tipps"]
+    },
+    {
+      "id": "katze-frisst-nicht",
+      "slug": "katze-frisst-nicht-ursachen-loesungen",
+      "title": "Meine Katze frisst nicht: Ursachen und Lösungen",
+      "excerpt": "Was tun, wenn die Samtpfote das Futter verweigert? Wir erklären mögliche Gründe und geben praktische Tipps.",
+      "content": "Es kann beunruhigend sein, wenn deine Katze plötzlich das Futter verweigert...",
+      "category": "Katzengesundheit",
+      "author": "Lisa Wagner",
+      "authorRole": "Katzenexpertin",
+      "publishedAt": "2024-01-10",
+      "readingTime": 6,
+      "image": "/images/blog/katze-frisst-nicht.jpg",
+      "tags": ["Katzenfutter", "Gesundheit", "Fressverhalten"]
+    },
+    {
+      "id": "getreidefreies-futter",
+      "slug": "getreidefreies-futter-sinnvoll-oder-trend",
+      "title": "Getreidefreies Futter: Sinnvoll oder nur ein Trend?",
+      "excerpt": "Immer mehr Tierhalter greifen zu getreidefreiem Futter. Wir klären auf, wann es wirklich Sinn macht.",
+      "content": "Getreidefreies Tierfutter liegt im Trend, aber ist es wirklich für jedes Tier geeignet?...",
+      "category": "Ernährungswissen",
+      "author": "Dr. Maria Schmitt",
+      "authorRole": "Tierärztin & Ernährungsberaterin",
+      "publishedAt": "2024-01-05",
+      "readingTime": 7,
+      "image": "/images/blog/getreidefreies-futter.jpg",
+      "tags": ["Getreidefrei", "Allergien", "Ernährung"]
+    },
+    {
+      "id": "pferd-im-winter",
+      "slug": "pferdeernaehrung-im-winter",
+      "title": "Pferdeernährung im Winter: Darauf solltest du achten",
+      "excerpt": "Die kalte Jahreszeit stellt besondere Anforderungen an die Pferdefütterung. Hier sind unsere Experten-Tipps.",
+      "content": "Im Winter benötigen Pferde eine angepasste Ernährung, um ihren erhöhten Energiebedarf zu decken...",
+      "category": "Pferdeernährung",
+      "author": "Thomas Berger",
+      "authorRole": "Pferdewirt & Ernährungsberater",
+      "publishedAt": "2023-12-20",
+      "readingTime": 9,
+      "image": "/images/blog/pferd-winter.jpg",
+      "tags": ["Pferd", "Winter", "Fütterung", "Jahreszeit"]
+    },
+    {
+      "id": "futterumstellung",
+      "slug": "futterumstellung-richtig-gemacht",
+      "title": "Futterumstellung richtig gemacht: Schritt für Schritt",
+      "excerpt": "Eine falsche Futterumstellung kann zu Verdauungsproblemen führen. So machst du es richtig.",
+      "content": "Ob neues Futter oder andere Marke – eine Futterumstellung sollte immer behutsam erfolgen...",
+      "category": "Tipps & Tricks",
+      "author": "Lisa Wagner",
+      "authorRole": "Katzenexpertin",
+      "publishedAt": "2023-12-15",
+      "readingTime": 5,
+      "image": "/images/blog/futterumstellung.jpg",
+      "tags": ["Umstellung", "Verdauung", "Tipps"]
+    }
+  ],
+  "categories": [
+    "Hundeernährung",
+    "Katzengesundheit",
+    "Pferdeernährung",
+    "Ernährungswissen",
+    "Tipps & Tricks"
+  ]
+}
+

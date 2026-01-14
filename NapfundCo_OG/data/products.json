@@ -1,0 +1,420 @@
+{
+  "products": [
+    {
+      "id": "hund-premium-rind-400g",
+      "slug": "premium-nassfutter-rind",
+      "name": "Premium Nassfutter Rind",
+      "shortDescription": "Hochwertiges Alleinfuttermittel mit 70% Rindfleisch",
+      "category": "hund",
+      "subcategory": "nassfutter",
+      "price": 3.99,
+      "pricePerKg": 9.98,
+      "weight": 400,
+      "weightUnit": "g",
+      "images": [
+        "/images/products/hund-rind-1.jpg",
+        "/images/products/hund-rind-2.jpg"
+      ],
+      "rating": 4.8,
+      "reviewCount": 127,
+      "inStock": true,
+      "isNew": false,
+      "isBestseller": true,
+      "badges": ["Getreidefrei", "100% aus EU"],
+      "ingredients": "70% Rind (bestehend aus Muskelfleisch, Herz, Lunge, Leber), Kartoffeln, Karotten, Zucchini, Leinöl, Mineralstoffe",
+      "analyticalConstituents": {
+        "protein": 10.5,
+        "fat": 6.2,
+        "fiber": 0.5,
+        "ash": 2.0,
+        "moisture": 78.0
+      },
+      "additives": {
+        "vitaminD3": "200 IE/kg",
+        "vitaminE": "30 mg/kg",
+        "zinc": "15 mg/kg",
+        "manganese": "3 mg/kg"
+      },
+      "feedingGuide": [
+        { "weightFrom": 5, "weightTo": 10, "amountPerDay": "200-400g" },
+        { "weightFrom": 10, "weightTo": 20, "amountPerDay": "400-600g" },
+        { "weightFrom": 20, "weightTo": 30, "amountPerDay": "600-800g" },
+        { "weightFrom": 30, "weightTo": 40, "amountPerDay": "800-1000g" }
+      ],
+      "highlights": [
+        "70% hochwertiger Fleischanteil",
+        "Ohne Getreide und Gluten",
+        "Ohne künstliche Farb- und Konservierungsstoffe",
+        "Schonend gegart für optimale Nährstofferhaltung"
+      ],
+      "suitableFor": ["Alle Rassen", "Erwachsene Hunde", "Sensible Verdauung"],
+      "tiktokShopUrl": "https://www.tiktok.com/@napfundco/product/hund-premium-rind"
+    },
+    {
+      "id": "hund-premium-huhn-400g",
+      "slug": "premium-nassfutter-huhn",
+      "name": "Premium Nassfutter Huhn",
+      "shortDescription": "Leicht verdauliches Nassfutter mit zartem Hühnerfleisch",
+      "category": "hund",
+      "subcategory": "nassfutter",
+      "price": 3.79,
+      "pricePerKg": 9.48,
+      "weight": 400,
+      "weightUnit": "g",
+      "images": [
+        "/images/products/hund-huhn-1.jpg"
+      ],
+      "rating": 4.7,
+      "reviewCount": 98,
+      "inStock": true,
+      "isNew": false,
+      "isBestseller": true,
+      "badges": ["Getreidefrei", "Leicht verdaulich"],
+      "ingredients": "65% Huhn (bestehend aus Muskelfleisch, Herz, Leber), Süßkartoffeln, Erbsen, Äpfel, Lachsöl, Mineralstoffe",
+      "analyticalConstituents": {
+        "protein": 10.0,
+        "fat": 5.8,
+        "fiber": 0.4,
+        "ash": 1.8,
+        "moisture": 79.0
+      },
+      "additives": {
+        "vitaminD3": "200 IE/kg",
+        "vitaminE": "30 mg/kg",
+        "zinc": "15 mg/kg",
+        "manganese": "3 mg/kg"
+      },
+      "feedingGuide": [
+        { "weightFrom": 5, "weightTo": 10, "amountPerDay": "200-400g" },
+        { "weightFrom": 10, "weightTo": 20, "amountPerDay": "400-600g" },
+        { "weightFrom": 20, "weightTo": 30, "amountPerDay": "600-800g" },
+        { "weightFrom": 30, "weightTo": 40, "amountPerDay": "800-1000g" }
+      ],
+      "highlights": [
+        "Zartes Hühnerfleisch als Hauptzutat",
+        "Reich an Omega-3 durch Lachsöl",
+        "Ideal für sensible Mägen",
+        "100% natürliche Zutaten"
+      ],
+      "suitableFor": ["Alle Rassen", "Erwachsene Hunde", "Welpen ab 4 Monaten"],
+      "tiktokShopUrl": "https://www.tiktok.com/@napfundco/product/hund-premium-huhn"
+    },
+    {
+      "id": "hund-trockenfutter-lamm-2kg",
+      "slug": "trockenfutter-lamm-reis",
+      "name": "Trockenfutter Lamm & Reis",
+      "shortDescription": "Hypoallergenes Trockenfutter für empfindliche Hunde",
+      "category": "hund",
+      "subcategory": "trockenfutter",
+      "price": 24.99,
+      "pricePerKg": 12.50,
+      "weight": 2000,
+      "weightUnit": "g",
+      "images": [
+        "/images/products/hund-trocken-lamm-1.jpg"
+      ],
+      "rating": 4.9,
+      "reviewCount": 215,
+      "inStock": true,
+      "isNew": true,
+      "isBestseller": false,
+      "badges": ["Hypoallergen", "Mit Reis"],
+      "ingredients": "Lammfleisch (26%), Reis (24%), Lammfett, getrocknete Kartoffeln, Rübenfaser, Lachsöl, Leinsamen, Mineralstoffe, Kräutermischung",
+      "analyticalConstituents": {
+        "protein": 24.0,
+        "fat": 14.0,
+        "fiber": 2.5,
+        "ash": 7.0,
+        "moisture": 10.0
+      },
+      "additives": {
+        "vitaminA": "15000 IE/kg",
+        "vitaminD3": "1500 IE/kg",
+        "vitaminE": "150 mg/kg",
+        "zinc": "100 mg/kg"
+      },
+      "feedingGuide": [
+        { "weightFrom": 5, "weightTo": 10, "amountPerDay": "80-130g" },
+        { "weightFrom": 10, "weightTo": 20, "amountPerDay": "130-220g" },
+        { "weightFrom": 20, "weightTo": 30, "amountPerDay": "220-290g" },
+        { "weightFrom": 30, "weightTo": 40, "amountPerDay": "290-360g" }
+      ],
+      "highlights": [
+        "Lamm als einzige tierische Proteinquelle",
+        "Hypoallergene Rezeptur",
+        "Unterstützt Haut und Fell",
+        "Ohne Weizen und Soja"
+      ],
+      "suitableFor": ["Alle Rassen", "Hunde mit Allergien", "Sensible Hunde"],
+      "tiktokShopUrl": "https://www.tiktok.com/@napfundco/product/hund-trockenfutter-lamm"
+    },
+    {
+      "id": "katze-premium-lachs-200g",
+      "slug": "premium-nassfutter-lachs-katze",
+      "name": "Premium Nassfutter Lachs",
+      "shortDescription": "Delikates Nassfutter mit norwegischem Wildlachs",
+      "category": "katze",
+      "subcategory": "nassfutter",
+      "price": 2.49,
+      "pricePerKg": 12.45,
+      "weight": 200,
+      "weightUnit": "g",
+      "images": [
+        "/images/products/katze-lachs-1.jpg"
+      ],
+      "rating": 4.6,
+      "reviewCount": 89,
+      "inStock": true,
+      "isNew": false,
+      "isBestseller": true,
+      "badges": ["Reich an Omega-3", "Getreidefrei"],
+      "ingredients": "60% Lachs (Wildlachs aus Norwegen), Hühnerbrühe, Kartoffelstärke, Mineralstoffe, Lachsöl, Taurin",
+      "analyticalConstituents": {
+        "protein": 11.0,
+        "fat": 6.5,
+        "fiber": 0.3,
+        "ash": 1.5,
+        "moisture": 78.0
+      },
+      "additives": {
+        "vitaminD3": "250 IE/kg",
+        "vitaminE": "40 mg/kg",
+        "taurin": "1500 mg/kg",
+        "zinc": "20 mg/kg"
+      },
+      "feedingGuide": [
+        { "weightFrom": 2, "weightTo": 4, "amountPerDay": "120-200g" },
+        { "weightFrom": 4, "weightTo": 6, "amountPerDay": "200-280g" },
+        { "weightFrom": 6, "weightTo": 8, "amountPerDay": "280-350g" }
+      ],
+      "highlights": [
+        "Norwegischer Wildlachs",
+        "Reich an Omega-3-Fettsäuren",
+        "Unterstützt glänzendes Fell",
+        "Mit Taurin für Herzgesundheit"
+      ],
+      "suitableFor": ["Alle Rassen", "Erwachsene Katzen", "Fellpflege"],
+      "tiktokShopUrl": "https://www.tiktok.com/@napfundco/product/katze-premium-lachs"
+    },
+    {
+      "id": "katze-trockenfutter-adult-1kg",
+      "slug": "trockenfutter-adult-katze",
+      "name": "Trockenfutter Adult Huhn",
+      "shortDescription": "Ausgewogenes Alleinfutter für ausgewachsene Katzen",
+      "category": "katze",
+      "subcategory": "trockenfutter",
+      "price": 12.99,
+      "pricePerKg": 12.99,
+      "weight": 1000,
+      "weightUnit": "g",
+      "images": [
+        "/images/products/katze-trocken-1.jpg"
+      ],
+      "rating": 4.5,
+      "reviewCount": 156,
+      "inStock": true,
+      "isNew": false,
+      "isBestseller": false,
+      "badges": ["Hoher Fleischanteil", "Zahnpflege"],
+      "ingredients": "Hühnerfleischmehl (35%), Reis, tierisches Fett, Mais, Fischmehl, Rübenfaser, Mineralstoffe, Hefe, Taurin",
+      "analyticalConstituents": {
+        "protein": 34.0,
+        "fat": 18.0,
+        "fiber": 2.0,
+        "ash": 6.5,
+        "moisture": 8.0
+      },
+      "additives": {
+        "vitaminA": "20000 IE/kg",
+        "vitaminD3": "1800 IE/kg",
+        "vitaminE": "200 mg/kg",
+        "taurin": "2000 mg/kg"
+      },
+      "feedingGuide": [
+        { "weightFrom": 2, "weightTo": 4, "amountPerDay": "35-55g" },
+        { "weightFrom": 4, "weightTo": 6, "amountPerDay": "55-70g" },
+        { "weightFrom": 6, "weightTo": 8, "amountPerDay": "70-85g" }
+      ],
+      "highlights": [
+        "Speziell für Wohnungskatzen",
+        "Unterstützt die Zahngesundheit",
+        "Hairball-Kontrolle",
+        "Optimal verdaulich"
+      ],
+      "suitableFor": ["Alle Rassen", "Erwachsene Katzen 1-7 Jahre"],
+      "tiktokShopUrl": "https://www.tiktok.com/@napfundco/product/katze-trockenfutter-adult"
+    },
+    {
+      "id": "pferd-muesli-wellness-15kg",
+      "slug": "wellness-muesli-pferd",
+      "name": "Wellness Müsli für Pferde",
+      "shortDescription": "Energiearmes Strukturfutter für leicht arbeitende Pferde",
+      "category": "pferd",
+      "subcategory": "muesli",
+      "price": 29.99,
+      "pricePerKg": 2.00,
+      "weight": 15000,
+      "weightUnit": "g",
+      "images": [
+        "/images/products/pferd-muesli-1.jpg"
+      ],
+      "rating": 4.8,
+      "reviewCount": 67,
+      "inStock": true,
+      "isNew": false,
+      "isBestseller": true,
+      "badges": ["Getreidearm", "Reich an Fasern"],
+      "ingredients": "Luzernehäcksel, Heucobs, Leinsamen, Weizenkleie, Rübenschnitzel, Karotten, Äpfel, Mineralstoffe, Bierhefe",
+      "analyticalConstituents": {
+        "protein": 12.0,
+        "fat": 3.5,
+        "fiber": 18.0,
+        "ash": 8.0,
+        "moisture": 12.0
+      },
+      "additives": {
+        "vitaminA": "8000 IE/kg",
+        "vitaminD3": "800 IE/kg",
+        "vitaminE": "80 mg/kg",
+        "selen": "0.3 mg/kg"
+      },
+      "feedingGuide": [
+        { "weightFrom": 300, "weightTo": 400, "amountPerDay": "1.5-2kg" },
+        { "weightFrom": 400, "weightTo": 550, "amountPerDay": "2-2.5kg" },
+        { "weightFrom": 550, "weightTo": 700, "amountPerDay": "2.5-3kg" }
+      ],
+      "highlights": [
+        "Ideal für leichtfuttrige Pferde",
+        "Stärke- und zuckerreduziert",
+        "Unterstützt gesunde Verdauung",
+        "Reich an natürlichen Fasern"
+      ],
+      "suitableFor": ["Freizeitpferde", "Leicht arbeitende Pferde", "Stoffwechselempfindliche Pferde"],
+      "tiktokShopUrl": "https://www.tiktok.com/@napfundco/product/pferd-wellness-muesli"
+    },
+    {
+      "id": "hund-snack-trainings-150g",
+      "slug": "trainings-snacks-hund",
+      "name": "Trainings-Snacks Huhn",
+      "shortDescription": "Kleine, weiche Leckerlis ideal fürs Training",
+      "category": "hund",
+      "subcategory": "snacks",
+      "price": 4.99,
+      "pricePerKg": 33.27,
+      "weight": 150,
+      "weightUnit": "g",
+      "images": [
+        "/images/products/hund-snack-1.jpg"
+      ],
+      "rating": 4.9,
+      "reviewCount": 312,
+      "inStock": true,
+      "isNew": false,
+      "isBestseller": true,
+      "badges": ["Getreide frei", "Soft-Snack"],
+      "ingredients": "70% Huhn (Brustfleisch), Kartoffelstärke, Glycerin (pflanzlich), Mineralstoffe",
+      "analyticalConstituents": {
+        "protein": 28.0,
+        "fat": 12.0,
+        "fiber": 1.0,
+        "ash": 4.0,
+        "moisture": 20.0
+      },
+      "additives": {},
+      "feedingGuide": [
+        { "weightFrom": 0, "weightTo": 100, "amountPerDay": "Max. 10% der Tagesration" }
+      ],
+      "highlights": [
+        "Kleine Größe - ideal fürs Training",
+        "Weich und saftig",
+        "Ohne künstliche Zusätze",
+        "Hohe Akzeptanz"
+      ],
+      "suitableFor": ["Alle Rassen", "Welpen ab 3 Monaten", "Training"],
+      "tiktokShopUrl": "https://www.tiktok.com/@napfundco/product/hund-trainings-snacks"
+    },
+    {
+      "id": "katze-snack-lachs-streifen-50g",
+      "slug": "lachs-streifen-katze",
+      "name": "Lachs-Streifen",
+      "shortDescription": "Natürliche Lachsstreifen als Belohnung",
+      "category": "katze",
+      "subcategory": "snacks",
+      "price": 3.49,
+      "pricePerKg": 69.80,
+      "weight": 50,
+      "weightUnit": "g",
+      "images": [
+        "/images/products/katze-snack-lachs-1.jpg"
+      ],
+      "rating": 4.7,
+      "reviewCount": 78,
+      "inStock": true,
+      "isNew": true,
+      "isBestseller": false,
+      "badges": ["100% Lachs", "Natürlich getrocknet"],
+      "ingredients": "100% Lachs",
+      "analyticalConstituents": {
+        "protein": 65.0,
+        "fat": 18.0,
+        "fiber": 0.5,
+        "ash": 8.0,
+        "moisture": 8.0
+      },
+      "additives": {},
+      "feedingGuide": [
+        { "weightFrom": 0, "weightTo": 100, "amountPerDay": "2-4 Streifen täglich" }
+      ],
+      "highlights": [
+        "Nur eine Zutat: 100% Lachs",
+        "Schonend luftgetrocknet",
+        "Reich an Omega-3",
+        "Natürliche Zahnpflege"
+      ],
+      "suitableFor": ["Alle Rassen", "Erwachsene Katzen", "Als Belohnung"],
+      "tiktokShopUrl": "https://www.tiktok.com/@napfundco/product/katze-lachs-streifen"
+    }
+  ],
+  "categories": [
+    {
+      "id": "hund",
+      "name": "Hundefutter",
+      "slug": "hund",
+      "description": "Premium Hundefutter für alle Rassen und Lebenslagen",
+      "image": "/images/categories/hund.jpg",
+      "subcategories": [
+        { "id": "nassfutter", "name": "Nassfutter" },
+        { "id": "trockenfutter", "name": "Trockenfutter" },
+        { "id": "snacks", "name": "Snacks & Leckerlis" },
+        { "id": "welpen", "name": "Welpenfutter" }
+      ]
+    },
+    {
+      "id": "katze",
+      "name": "Katzenfutter",
+      "slug": "katze",
+      "description": "Ausgewogene Ernährung für Ihre Samtpfote",
+      "image": "/images/categories/katze.jpg",
+      "subcategories": [
+        { "id": "nassfutter", "name": "Nassfutter" },
+        { "id": "trockenfutter", "name": "Trockenfutter" },
+        { "id": "snacks", "name": "Snacks & Leckerlis" },
+        { "id": "kitten", "name": "Kittenfutter" }
+      ]
+    },
+    {
+      "id": "pferd",
+      "name": "Pferdefutter",
+      "slug": "pferd",
+      "description": "Hochwertiges Futter für Freizeit- und Sportpferde",
+      "image": "/images/categories/pferd.jpg",
+      "subcategories": [
+        { "id": "muesli", "name": "Müsli" },
+        { "id": "pellets", "name": "Pellets" },
+        { "id": "ergaenzung", "name": "Ergänzungsfutter" },
+        { "id": "leckerlis", "name": "Leckerlis" }
+      ]
+    }
+  ]
+}
+

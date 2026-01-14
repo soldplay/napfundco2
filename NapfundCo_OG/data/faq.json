@@ -1,0 +1,140 @@
+{
+  "categories": [
+    {
+      "id": "bestellung",
+      "name": "Bestellung & Lieferung",
+      "icon": "Package",
+      "questions": [
+        {
+          "id": "wie-bestellen",
+          "question": "Wie kann ich bei Napf&Co bestellen?",
+          "answer": "Sie können unsere Produkte direkt über unseren TikTok Shop bestellen. Klicken Sie einfach auf den \"Bei TikTok kaufen\" Button auf der Produktseite und Sie werden zu unserem TikTok Shop weitergeleitet, wo Sie den Kauf abschließen können."
+        },
+        {
+          "id": "lieferzeit",
+          "question": "Wie lange dauert die Lieferung?",
+          "answer": "Die Lieferung erfolgt in der Regel innerhalb von 2-4 Werktagen nach Zahlungseingang. Bei Bestellungen vor 14 Uhr (Mo-Fr) versenden wir noch am selben Tag."
+        },
+        {
+          "id": "versandkosten",
+          "question": "Wie hoch sind die Versandkosten?",
+          "answer": "Die Versandkosten betragen 4,95€ innerhalb Österreichs und Deutschlands. Ab einem Bestellwert von 49€ liefern wir versandkostenfrei."
+        },
+        {
+          "id": "zahlungsarten",
+          "question": "Welche Zahlungsarten werden akzeptiert?",
+          "answer": "Im TikTok Shop können Sie mit PayPal, Kreditkarte (Visa, Mastercard), Klarna und Apple Pay bezahlen. Alle Zahlungen werden sicher über TikTok abgewickelt."
+        },
+        {
+          "id": "sendungsverfolgung",
+          "question": "Kann ich meine Sendung verfolgen?",
+          "answer": "Ja, Sie erhalten nach dem Versand eine E-Mail mit der Sendungsnummer. Damit können Sie Ihr Paket jederzeit bei DHL verfolgen."
+        }
+      ]
+    },
+    {
+      "id": "rueckgabe",
+      "name": "Widerruf & Rückgabe",
+      "icon": "RotateCcw",
+      "questions": [
+        {
+          "id": "widerrufsrecht",
+          "question": "Wie lange habe ich Widerrufsrecht?",
+          "answer": "Sie haben 14 Tage ab Erhalt der Ware Zeit, Ihren Kauf ohne Angabe von Gründen zu widerrufen. Das Widerrufsrecht gilt für alle Produkte, sofern die Verpackung ungeöffnet ist."
+        },
+        {
+          "id": "ruecksendung",
+          "question": "Wie sende ich ein Produkt zurück?",
+          "answer": "Kontaktieren Sie uns zunächst über das Kontaktformular oder per E-Mail an office@work-force.at. Wir senden Ihnen dann ein Rücksendeetikett zu. Die Rücksendekosten übernehmen wir."
+        },
+        {
+          "id": "erstattung",
+          "question": "Wann erhalte ich meine Erstattung?",
+          "answer": "Nach Eingang und Prüfung der Rücksendung erstatten wir den Kaufpreis innerhalb von 7 Werktagen auf dem ursprünglichen Zahlungsweg."
+        }
+      ]
+    },
+    {
+      "id": "fuetterung",
+      "name": "Fütterung & Ernährung",
+      "icon": "Utensils",
+      "questions": [
+        {
+          "id": "futterumstellung",
+          "question": "Wie stelle ich das Futter richtig um?",
+          "answer": "Eine Futterumstellung sollte schrittweise über 7-10 Tage erfolgen. Beginnen Sie mit 25% neuem Futter gemischt mit 75% altem Futter und erhöhen Sie den Anteil des neuen Futters täglich. So kann sich der Verdauungstrakt Ihres Tieres langsam anpassen."
+        },
+        {
+          "id": "fuettermenge",
+          "question": "Wie viel Futter braucht mein Tier?",
+          "answer": "Die Futtermenge hängt von Gewicht, Alter, Aktivitätslevel und individuellen Bedürfnissen ab. Auf jeder Produktseite finden Sie eine detaillierte Fütterungsempfehlung. Unser Futterberater-Quiz kann Ihnen zusätzlich helfen, die optimale Menge zu ermitteln."
+        },
+        {
+          "id": "lagerung",
+          "question": "Wie lagere ich das Futter richtig?",
+          "answer": "Trockenfutter sollte kühl, trocken und lichtgeschützt in einem luftdichten Behälter gelagert werden. Geöffnetes Nassfutter im Kühlschrank aufbewahren und innerhalb von 2-3 Tagen verfüttern. Vor dem Füttern auf Zimmertemperatur bringen."
+        },
+        {
+          "id": "allergien",
+          "question": "Gibt es Futter für Allergiker?",
+          "answer": "Ja, wir bieten hypoallergene Rezepturen an, z.B. unser Lamm & Reis Trockenfutter mit nur einer tierischen Proteinquelle. Bei bekannten Allergien empfehlen wir unser Futterberater-Quiz, das allergiefreundliche Optionen vorschlägt."
+        },
+        {
+          "id": "getreide",
+          "question": "Ist getreidefreies Futter besser?",
+          "answer": "Getreidefreies Futter ist ideal für Tiere mit Getreideunverträglichkeit. Gesunde Tiere vertragen hochwertiges Getreide jedoch meist problemlos. Entscheidend ist die Gesamtqualität der Zutaten. Wir bieten sowohl getreidefreie als auch getreidehaltige Varianten an."
+        }
+      ]
+    },
+    {
+      "id": "produkte",
+      "name": "Produkte & Qualität",
+      "icon": "Award",
+      "questions": [
+        {
+          "id": "herkunft",
+          "question": "Woher stammen Ihre Zutaten?",
+          "answer": "Wir beziehen unsere Zutaten überwiegend von regionalen Lieferanten aus Deutschland und dem europäischen Raum. Unser Fleisch stammt ausschließlich aus kontrollierter Haltung."
+        },
+        {
+          "id": "herstellung",
+          "question": "Wo wird das Futter hergestellt?",
+          "answer": "Alle unsere Produkte werden in der EU hergestellt. Unsere Produktionsstätten sind nach höchsten Qualitätsstandards zertifiziert."
+        },
+        {
+          "id": "haltbarkeit",
+          "question": "Wie lange ist das Futter haltbar?",
+          "answer": "Das Mindesthaltbarkeitsdatum finden Sie auf jeder Verpackung. Ungeöffnet ist Trockenfutter ca. 12-18 Monate haltbar, Nassfutter ca. 24 Monate. Nach dem Öffnen Trockenfutter innerhalb von 6 Wochen, Nassfutter innerhalb von 2-3 Tagen (gekühlt) verbrauchen."
+        },
+        {
+          "id": "zusatzstoffe",
+          "question": "Enthält das Futter künstliche Zusatzstoffe?",
+          "answer": "Wir verzichten bewusst auf künstliche Farb-, Aroma- und Konservierungsstoffe. Die deklarierten Zusatzstoffe sind ausschließlich ernährungsphysiologisch notwendige Vitamine und Mineralstoffe."
+        }
+      ]
+    },
+    {
+      "id": "tiktok",
+      "name": "TikTok Shop",
+      "icon": "Smartphone",
+      "questions": [
+        {
+          "id": "was-ist-tiktok-shop",
+          "question": "Was ist der TikTok Shop?",
+          "answer": "Der TikTok Shop ist eine Einkaufsfunktion innerhalb der TikTok App, über die Sie unsere Produkte direkt kaufen können. Der gesamte Bestellvorgang – von der Produktauswahl bis zur Bezahlung – findet sicher in der TikTok App statt."
+        },
+        {
+          "id": "tiktok-konto",
+          "question": "Brauche ich ein TikTok-Konto zum Bestellen?",
+          "answer": "Ja, für den Kauf im TikTok Shop benötigen Sie ein kostenloses TikTok-Konto. Die Registrierung ist schnell und unkompliziert."
+        },
+        {
+          "id": "tiktok-sicherheit",
+          "question": "Ist der Kauf über TikTok sicher?",
+          "answer": "Ja, TikTok Shop bietet sichere Zahlungsabwicklung und Käuferschutz. Ihre Zahlungsdaten werden verschlüsselt übertragen. Zudem gelten alle deutschen Verbraucherschutzrechte wie Widerruf und Gewährleistung."
+        }
+      ]
+    }
+  ]
+}
+

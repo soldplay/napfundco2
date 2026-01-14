@@ -1,0 +1,311 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 20 14% 4%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14% 4%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 355 100% 100%;
+    --secondary: 48 96% 89%;
+    --secondary-foreground: 20 14% 4%;
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+    --accent: 24 94% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --ring: 142 76% 36%;
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-warmgray-200;
+  }
+
+  body {
+    @apply bg-cream text-warmgray-900 antialiased;
+  }
+
+  /* Barrierefreiheit: Sichtbarer Fokus-Indikator */
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+  }
+
+  /* Skip-to-Content Link für Screenreader */
+  .skip-to-content {
+    @apply absolute -top-10 left-0 z-[100] bg-primary-600 text-white px-4 py-2 transition-all focus:top-0;
+  }
+
+  /* Header-Höhe für korrektes Spacing */
+  :root {
+    --header-height-mobile: 4rem; /* 64px - h-16 */
+    --header-height-desktop: 7rem; /* 112px - Top Bar (32px) + Nav (80px) */
+  }
+
+  /* Barrierefreiheit: Reduzierte Bewegung respektieren */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Stress-Modus: Weniger Animationen, größere Buttons, ruhigere Farben */
+  .stress-mode-high,
+  .calm-mode {
+    --animation-duration: 0.1s;
+    --button-min-height: 52px;
+    --button-min-width: 52px;
+  }
+
+  .stress-mode-high *,
+  .calm-mode * {
+    animation-duration: var(--animation-duration, 0.1s) !important;
+    transition-duration: var(--animation-duration, 0.1s) !important;
+  }
+
+  .stress-mode-high button,
+  .calm-mode button {
+    min-height: var(--button-min-height, 52px);
+    min-width: var(--button-min-width, 52px);
+  }
+
+  /* Accessibility: High Contrast */
+  .high-contrast {
+    --primary-600: #000000 !important;
+    --primary-700: #000000 !important;
+    --warmgray-900: #000000 !important;
+    --warmgray-700: #333333 !important;
+    --warmgray-600: #666666 !important;
+    --warmgray-500: #666666 !important;
+    --accent-500: #000000 !important;
+  }
+
+  .high-contrast * {
+    border-color: #000000 !important;
+  }
+
+  .high-contrast a,
+  .high-contrast button,
+  .high-contrast .text-primary-600,
+  .high-contrast .text-primary-700,
+  .high-contrast .text-warmgray-900,
+  .high-contrast .text-warmgray-700 {
+    color: #000000 !important;
+  }
+
+  .high-contrast .bg-primary-600,
+  .high-contrast .bg-primary-700,
+  .high-contrast .bg-accent-500 {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+  }
+
+  .high-contrast .bg-primary-50,
+  .high-contrast .bg-warmgray-50 {
+    background-color: #f0f0f0 !important;
+  }
+
+  .very-high-contrast {
+    --primary-600: #000000 !important;
+    --primary-700: #000000 !important;
+    --warmgray-900: #000000 !important;
+    --warmgray-700: #000000 !important;
+    --warmgray-600: #000000 !important;
+    --warmgray-500: #000000 !important;
+    --accent-500: #000000 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .very-high-contrast * {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-color: #000000 !important;
+  }
+
+  .very-high-contrast a,
+  .very-high-contrast button,
+  .very-high-contrast .text-primary-600,
+  .very-high-contrast .text-primary-700,
+  .very-high-contrast .text-warmgray-900,
+  .very-high-contrast .text-warmgray-700 {
+    color: #000000 !important;
+  }
+
+  .very-high-contrast .bg-primary-600,
+  .very-high-contrast .bg-primary-700,
+  .very-high-contrast .bg-accent-500 {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+  }
+
+  /* Accessibility: Simplified Language */
+  .simplified-language {
+    font-family: system-ui, -apple-system, sans-serif !important;
+  }
+
+  .simplified-language .heading-1,
+  .simplified-language .heading-2,
+  .simplified-language .heading-3,
+  .simplified-language .heading-4 {
+    font-weight: 600 !important;
+    line-height: 1.5 !important;
+  }
+
+  .simplified-language p,
+  .simplified-language li,
+  .simplified-language span {
+    font-size: 1.1em !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Accessibility: Screenreader Optimization */
+  .screenreader-optimized [aria-hidden="true"] {
+    display: none;
+  }
+
+  .screenreader-optimized [role="img"] {
+    speak: none;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .heading-1 {
+    @apply font-heading text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl;
+  }
+
+  .heading-2 {
+    @apply font-heading text-3xl font-bold tracking-tight sm:text-4xl;
+  }
+
+  .heading-3 {
+    @apply font-heading text-2xl font-semibold tracking-tight;
+  }
+
+  .heading-4 {
+    @apply font-heading text-xl font-semibold;
+  }
+
+  .body-large {
+    @apply text-lg leading-relaxed;
+  }
+
+  .body-base {
+    @apply text-base leading-relaxed;
+  }
+
+  .body-small {
+    @apply text-sm leading-relaxed;
+  }
+
+  /* Button Varianten */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 focus-visible:ring-primary-500;
+  }
+
+  .btn-secondary {
+    @apply btn bg-warmgray-100 text-warmgray-900 hover:bg-warmgray-200 focus-visible:ring-warmgray-400;
+  }
+
+  .btn-accent {
+    @apply btn bg-accent-500 text-white hover:bg-accent-600 focus-visible:ring-accent-400;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-primary-600 text-primary-600 hover:bg-primary-50 focus-visible:ring-primary-500;
+  }
+
+  .btn-ghost {
+    @apply btn text-warmgray-600 hover:bg-warmgray-100 hover:text-warmgray-900;
+  }
+
+  .btn-lg {
+    @apply px-8 py-4 text-lg;
+  }
+
+  .btn-md {
+    @apply px-6 py-3 text-base;
+  }
+
+  .btn-sm {
+    @apply px-4 py-2 text-sm;
+  }
+
+  /* Card Styles */
+  .card {
+    @apply rounded-xl bg-white shadow-sm border border-warmgray-100 overflow-hidden;
+  }
+
+  .card-hover {
+    @apply card transition-all hover:shadow-md hover:-translate-y-1;
+  }
+
+  /* Trust Badge */
+  .trust-badge {
+    @apply inline-flex items-center gap-2 rounded-full bg-primary-50 px-4 py-2 text-sm font-medium text-primary-700;
+  }
+
+  /* Product Grid */
+  .product-grid {
+    @apply grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  }
+
+  /* Section Spacing */
+  .section {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .section-sm {
+    @apply py-8 sm:py-12;
+  }
+}
+
+/* Custom Scrollbar */
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.warmgray.300') transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: theme('colors.warmgray.300');
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: theme('colors.warmgray.400');
+  }
+}
+
