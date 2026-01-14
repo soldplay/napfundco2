@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Focus, X, Clock } from 'lucide-react'
 import { Button } from './button'
@@ -11,43 +11,104 @@ import { useFocusMode } from '@/hooks/useFocusMode'
  */
 export function FocusMode() {
   const { isActive } = useFocusMode()
+  const observerRef = useRef<MutationObserver | null>(null)
+  const intervalRef = useRef<NodeJS.Timeout | null>(null)
+
+  // Funktion zum Ausblenden von Pop-ups
+  const hidePopups = () => {
+    if (typeof document === 'undefined') return
+
+    const selectors = [
+      '[data-popup]',
+      '[data-chatbot]',
+      '[data-banner]',
+      '.popup',
+      '.chatbot',
+      '.banner',
+      '[role="dialog"]:not([data-keep-visible])',
+    ]
+
+    selectors.forEach((selector) => {
+      const elements = document.querySelectorAll(selector)
+      elements.forEach((el) => {
+        const htmlEl = el as HTMLElement
+        // Nur ausblenden wenn noch nicht versteckt
+        if (!htmlEl.hasAttribute('data-focus-hidden')) {
+          htmlEl.setAttribute('data-focus-original-display', htmlEl.style.display || '')
+          htmlEl.style.display = 'none'
+          htmlEl.setAttribute('data-focus-hidden', 'true')
+        }
+      })
+    })
+  }
+
+  // Funktion zum Anzeigen von Pop-ups
+  const showPopups = () => {
+    if (typeof document === 'undefined') return
+
+    const hiddenElements = document.querySelectorAll('[data-focus-hidden="true"]')
+    hiddenElements.forEach((el) => {
+      const htmlEl = el as HTMLElement
+      const originalDisplay = htmlEl.getAttribute('data-focus-original-display') || ''
+      htmlEl.style.display = originalDisplay
+      htmlEl.removeAttribute('data-focus-hidden')
+      htmlEl.removeAttribute('data-focus-original-display')
+    })
+  }
 
   useEffect(() => {
     if (isActive) {
       // Füge Klasse zum Body hinzu
       document.body.classList.add('focus-mode-active')
 
-      // Verstecke Popups, Chat-Bots, Banner
-      const selectors = [
-        '[data-popup]',
-        '[data-chatbot]',
-        '[data-banner]',
-        '.popup',
-        '.chatbot',
-        '.banner',
-        '[role="dialog"]:not([data-keep-visible])',
-      ]
+      // Verstecke Pop-ups sofort
+      hidePopups()
 
-      selectors.forEach((selector) => {
-        const elements = document.querySelectorAll(selector)
-        elements.forEach((el) => {
-          const htmlEl = el as HTMLElement
-          htmlEl.style.display = 'none'
-          htmlEl.setAttribute('data-focus-hidden', 'true')
-        })
+      // Erstelle MutationObserver um neue Pop-ups zu erkennen
+      observerRef.current = new MutationObserver(() => {
+        hidePopups()
       })
 
+      // Beobachte Änderungen im DOM
+      observerRef.current.observe(document.body, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['data-popup', 'class', 'style'],
+      })
+
+      // Zusätzlich: Regelmäßige Checks (falls Observer etwas verpasst)
+      intervalRef.current = setInterval(() => {
+        hidePopups()
+      }, 1000) // Alle Sekunde prüfen
+
       return () => {
+        // Cleanup
+        if (observerRef.current) {
+          observerRef.current.disconnect()
+          observerRef.current = null
+        }
+        if (intervalRef.current) {
+          clearInterval(intervalRef.current)
+          intervalRef.current = null
+        }
         document.body.classList.remove('focus-mode-active')
-        // Zeige Elemente wieder an
-        document.querySelectorAll('[data-focus-hidden="true"]').forEach((el) => {
-          const htmlEl = el as HTMLElement
-          htmlEl.style.display = ''
-          htmlEl.removeAttribute('data-focus-hidden')
-        })
+        showPopups()
       }
     } else {
+      // Deaktiviert: Zeige alle Pop-ups wieder
       document.body.classList.remove('focus-mode-active')
+      showPopups()
+
+      // Cleanup Observer und Interval
+      if (observerRef.current) {
+        observerRef.current.disconnect()
+        observerRef.current = null
+      }
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current)
+        intervalRef.current = null
+      }
     }
   }, [isActive])
 
@@ -112,4 +173,3 @@ export function FocusModeToggle() {
     </>
   )
 }
-
