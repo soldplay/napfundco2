@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, Sparkles, Star } from 'lucide-react'
+import { ArrowRight, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useAdaptiveContent, useWelcomeMessage } from '@/hooks/useACG'
 
@@ -112,31 +112,25 @@ export function Hero() {
               </Button>
             </div>
 
-            {/* Social Proof */}
-            <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <div
-                    key={i}
-                    className="h-10 w-10 rounded-full border-2 border-white bg-gradient-to-br from-primary-200 to-primary-400"
-                    aria-hidden="true"
-                  />
-                ))}
-              </div>
-              <div className="text-center sm:text-left">
-                <div className="flex items-center justify-center gap-1 sm:justify-start">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <Star
-                      key={i}
-                      className="h-4 w-4 fill-yellow-400 text-yellow-400"
-                      aria-hidden="true"
-                    />
-                  ))}
-                  <span className="ml-1 font-semibold text-warmgray-900">Top bewertet</span>
+            {/* Quality Badges */}
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+              <div className="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
+                <div className="h-6 w-6 rounded-full bg-green-100 flex items-center justify-center">
+                  <span className="text-xs" aria-hidden="true">✓</span>
                 </div>
-                <p className="text-sm text-warmgray-600">
-                  Zufriedene Kunden deutschlandweit
-                </p>
+                <span className="text-sm font-medium text-warmgray-700">100% aus EU</span>
+              </div>
+              <div className="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
+                <div className="h-6 w-6 rounded-full bg-green-100 flex items-center justify-center">
+                  <span className="text-xs" aria-hidden="true">🌿</span>
+                </div>
+                <span className="text-sm font-medium text-warmgray-700">100% Natürlich</span>
+              </div>
+              <div className="flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
+                <div className="h-6 w-6 rounded-full bg-green-100 flex items-center justify-center">
+                  <span className="text-xs" aria-hidden="true">⭐</span>
+                </div>
+                <span className="text-sm font-medium text-warmgray-700">Premium Qualität</span>
               </div>
             </div>
           </motion.div>
