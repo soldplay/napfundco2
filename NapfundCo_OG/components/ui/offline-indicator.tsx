@@ -23,6 +23,17 @@ export function OfflineIndicator() {
     return () => clearTimeout(timer)
   }, [isAvailable, supportsOfflineMode, isOffline])
 
+  // Auto-Collapse nach 7 Sekunden
+  useEffect(() => {
+    if (showSavePrompt && !isOffline) {
+      const timer = setTimeout(() => {
+        setShowSavePrompt(false)
+      }, 7000) // 7 Sekunden
+
+      return () => clearTimeout(timer)
+    }
+  }, [showSavePrompt, isOffline])
+
   const handleSave = () => {
     setIsSaving(true)
     saveCurrentPage()
@@ -69,8 +80,8 @@ export function OfflineIndicator() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            className="fixed bottom-6 left-1/2 z-40 -translate-x-1/2 rounded-xl border-2 border-primary-200 bg-white p-4 shadow-xl"
-            style={{ maxWidth: '400px' }}
+            className="fixed bottom-6 left-4 right-4 md:left-1/2 md:right-auto md:-translate-x-1/2 z-40 rounded-xl border-2 border-primary-200 bg-white p-3 md:p-4 shadow-xl"
+            style={{ maxWidth: 'min(400px, calc(100vw - 2rem))' }}
           >
             <div className="flex items-start gap-3">
               <div className="flex-shrink-0 rounded-full bg-primary-100 p-2">

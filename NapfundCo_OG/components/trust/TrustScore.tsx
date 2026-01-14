@@ -26,6 +26,17 @@ export function TrustScoreDisplay() {
     setTrustScore(score)
   }, [])
 
+  // Auto-Collapse nach 7 Sekunden
+  useEffect(() => {
+    if (!isMinimized && !isDismissed) {
+      const timer = setTimeout(() => {
+        setIsMinimized(true)
+      }, 7000) // 7 Sekunden
+
+      return () => clearTimeout(timer)
+    }
+  }, [isMinimized, isDismissed])
+
   const badge = trustCalculator.getStatusBadge(trustScore.overall)
 
   // Komplett ausblenden wenn dismissed

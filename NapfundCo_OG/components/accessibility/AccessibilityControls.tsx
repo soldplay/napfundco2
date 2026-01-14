@@ -35,6 +35,17 @@ export function AccessibilityControls() {
     accessibilityEngine.applySettings()
   }, [])
 
+  // Auto-Collapse nach 7 Sekunden
+  useEffect(() => {
+    if (isOpen) {
+      const timer = setTimeout(() => {
+        setIsOpen(false)
+      }, 7000) // 7 Sekunden
+
+      return () => clearTimeout(timer)
+    }
+  }, [isOpen])
+
   const handleSettingChange = (key: keyof AccessibilitySettings, value: unknown) => {
     const newSettings = { ...settings, [key]: value }
     setSettings(newSettings)

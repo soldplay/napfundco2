@@ -45,6 +45,17 @@ export function TimeSaver({
     }
   }, [timeOnPage, scrollDepth, minTimeSaved, isDismissed, isMobile])
 
+  // Auto-Collapse nach 7 Sekunden
+  useEffect(() => {
+    if (isVisible && !isMinimized && !isDismissed) {
+      const timer = setTimeout(() => {
+        setIsMinimized(true)
+      }, 7000) // 7 Sekunden
+
+      return () => clearTimeout(timer)
+    }
+  }, [isVisible, isMinimized, isDismissed])
+
   if (!isVisible || !estimate || isDismissed) return null
 
   const message = generateTimeSavedMessage(estimate)

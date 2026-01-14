@@ -4,7 +4,6 @@ import { ACGProvider } from './ACGProvider'
 import { UndoProvider } from '@/components/ui/undo-toast'
 import { StressMode, CalmModeToggle } from '@/components/ui/stress-mode'
 import { SmartAssistant } from '@/components/assistant/SmartAssistant'
-import { FocusModeToggle } from '@/components/ui/focus-mode'
 import { ExitSurvey } from '@/components/ui/exit-survey'
 import { TimeSaver } from '@/components/ui/time-saver'
 import { OfflineIndicator } from '@/components/ui/offline-indicator'
@@ -28,7 +27,6 @@ export function Providers({ children }: ProvidersProps) {
         <StressMode />
         <CalmModeToggle />
         <SmartAssistant />
-        <FocusModeToggle />
         <ExitSurvey />
         <TimeSaver />
         <OfflineIndicator />

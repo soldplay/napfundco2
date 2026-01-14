@@ -62,6 +62,17 @@ export function SessionMonitorComponent() {
     }
   }, [isMonitoring])
 
+  // Auto-Dismiss nach 7 Sekunden
+  useEffect(() => {
+    if (detectionResult && detectionResult.analysis.isSuspicious && !isDismissed) {
+      const timer = setTimeout(() => {
+        setIsDismissed(true)
+      }, 7000) // 7 Sekunden
+
+      return () => clearTimeout(timer)
+    }
+  }, [detectionResult, isDismissed])
+
   if (!detectionResult || !detectionResult.analysis.isSuspicious || isDismissed) {
     return null
   }
