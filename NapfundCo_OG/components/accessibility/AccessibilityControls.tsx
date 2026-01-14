@@ -68,7 +68,11 @@ export function AccessibilityControls() {
     <>
       {/* Toggle Button - responsiv positioniert */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        data-a11y-toggle="true"
+        onClick={() => {
+          sessionMonitor.markAccessibilityMode()
+          setIsOpen(!isOpen)
+        }}
         className={`fixed z-[70] rounded-full bg-primary-600 text-white shadow-xl hover:bg-primary-700 transition-all ${
           isMobile
             ? 'bottom-4 right-4 p-2.5'
@@ -97,14 +101,16 @@ export function AccessibilityControls() {
             
             <motion.div
               data-popup="true"
+              data-accessibility-controls="true"
               initial={{ opacity: 0, y: isMobile ? 100 : 0, x: isMobile ? 0 : 100 }}
               animate={{ opacity: 1, y: 0, x: 0 }}
               exit={{ opacity: 0, y: isMobile ? 100 : 0, x: isMobile ? 0 : 100 }}
-              className={`fixed z-[70] bg-white shadow-2xl overflow-y-auto ${
+              className={`fixed z-[70] bg-white shadow-2xl overflow-y-auto accessibility-controls ${
                 isMobile
                   ? 'bottom-0 left-0 right-0 rounded-t-2xl max-h-[80vh] p-4'
                   : 'bottom-20 right-6 w-80 max-h-[calc(100vh-8rem)] rounded-2xl border-2 border-primary-200 p-6'
               }`}
+              aria-label="Barrierefreiheitseinstellungen"
             >
               {/* Drag Handle für Mobile */}
               {isMobile && (
@@ -151,6 +157,8 @@ export function AccessibilityControls() {
                     {(['small', 'medium', 'large', 'xlarge'] as const).map((size) => (
                       <button
                         key={size}
+                        data-a11y-toggle="true"
+                        aria-label={`Schriftgröße ${size === 'small' ? 'Klein' : size === 'medium' ? 'Mittel' : size === 'large' ? 'Groß' : 'Sehr groß'}`}
                         onClick={() => handleSettingChange('fontSize', size)}
                         className={`rounded-lg border-2 ${isMobile ? 'px-2 py-1.5 text-[10px]' : 'px-3 py-2 text-xs'} font-medium transition-colors ${
                           settings.fontSize === size
@@ -174,6 +182,8 @@ export function AccessibilityControls() {
                     {(['normal', 'high', 'very-high'] as const).map((contrast) => (
                       <button
                         key={contrast}
+                        data-a11y-toggle="true"
+                        aria-label={`Kontrast ${contrast === 'normal' ? 'Normal' : contrast === 'high' ? 'Hoch' : 'Maximal'}`}
                         onClick={() => handleSettingChange('contrast', contrast)}
                         className={`rounded-lg border-2 ${isMobile ? 'px-2 py-1.5 text-[10px]' : 'px-3 py-2 text-xs'} font-medium transition-colors ${
                           settings.contrast === contrast
@@ -197,12 +207,13 @@ export function AccessibilityControls() {
                       </p>
                     </div>
                   </div>
-                  <label className="relative inline-flex items-center cursor-pointer">
+                  <label className="relative inline-flex items-center cursor-pointer" data-a11y-toggle="true" aria-label="Einfache Sprache">
                     <input
                       type="checkbox"
                       checked={settings.simplifiedLanguage}
                       onChange={(e) => handleSettingChange('simplifiedLanguage', e.target.checked)}
                       className="sr-only peer"
+                      aria-label="Einfache Sprache aktivieren"
                     />
                     <div className={`${isMobile ? 'w-9 h-5' : 'w-11 h-6'} bg-warmgray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary-500 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-warmgray-300 after:border after:rounded-full ${isMobile ? 'after:h-4 after:w-4' : 'after:h-5 after:w-5'} after:transition-all peer-checked:bg-primary-600`}></div>
                   </label>
@@ -222,7 +233,7 @@ export function AccessibilityControls() {
                         </p>
                       </div>
                     </div>
-                    <label className="relative inline-flex items-center cursor-pointer">
+                    <label className="relative inline-flex items-center cursor-pointer" data-a11y-toggle="true" aria-label="Screenreader-Optimierung">
                       <input
                         type="checkbox"
                         checked={settings.screenReaderOptimized}
@@ -230,6 +241,7 @@ export function AccessibilityControls() {
                           handleSettingChange('screenReaderOptimized', e.target.checked)
                         }
                         className="sr-only peer"
+                        aria-label="Screenreader-Optimierung aktivieren"
                       />
                       <div className={`${isMobile ? 'w-9 h-5' : 'w-11 h-6'} bg-warmgray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary-500 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-warmgray-300 after:border after:rounded-full ${isMobile ? 'after:h-4 after:w-4' : 'after:h-5 after:w-5'} after:transition-all peer-checked:bg-primary-600`}></div>
                     </label>

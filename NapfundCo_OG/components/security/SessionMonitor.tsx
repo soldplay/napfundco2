@@ -17,7 +17,25 @@ export function SessionMonitorComponent() {
     if (!isMonitoring) return
 
     // Zeichne Events auf
-    const handleClick = () => {
+    const handleClick = (e: MouseEvent) => {
+      // Ignoriere Klicks auf Accessibility-Controls
+      const target = e.target as HTMLElement
+      if (
+        target.closest('[data-accessibility-controls]') ||
+        target.closest('[data-a11y-toggle]') ||
+        target.closest('label[for*="accessibility"]') ||
+        target.closest('.accessibility-controls') ||
+        target.closest('[aria-label*="Barrierefreiheit"]') ||
+        target.closest('[aria-label*="Schriftgröße"]') ||
+        target.closest('[aria-label*="Kontrast"]') ||
+        target.closest('[aria-label*="Einfache Sprache"]') ||
+        target.closest('[aria-label*="Screenreader"]')
+      ) {
+        // Markiere Accessibility-Mode und ignoriere diesen Klick
+        sessionMonitor.markAccessibilityMode()
+        return
+      }
+      
       sessionMonitor.recordClick()
       checkSession()
     }
