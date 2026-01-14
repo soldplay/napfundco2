@@ -9,6 +9,7 @@ import {
   accessibilityEngine,
   type AccessibilitySettings,
 } from '@/lib/accessibility-engine'
+import { sessionMonitor } from '@/lib/session-monitor'
 
 export function AccessibilityControls() {
   const [isOpen, setIsOpen] = useState(false)
@@ -47,6 +48,9 @@ export function AccessibilityControls() {
   }, [isOpen])
 
   const handleSettingChange = (key: keyof AccessibilitySettings, value: unknown) => {
+    // Markiere Accessibility-Mode als aktiv, damit SessionMonitor nicht als verdächtig erkennt
+    sessionMonitor.markAccessibilityMode()
+    
     const newSettings = { ...settings, [key]: value }
     setSettings(newSettings)
     accessibilityEngine.setSettings(newSettings)

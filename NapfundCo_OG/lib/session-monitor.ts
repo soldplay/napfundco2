@@ -29,6 +29,7 @@ class SessionMonitor {
   private startTime: number = Date.now()
   private clickTimestamps: number[] = []
   private mouseMovements: Array<{ x: number; y: number; timestamp: number }> = []
+  private accessibilityModeActiveUntil: number = 0 // Timestamp bis wann Accessibility-Mode aktiv ist
 
   /**
    * Zeichnet einen Klick auf
@@ -65,6 +66,21 @@ class SessionMonitor {
   }
 
   /**
+   * Markiert, dass Accessibility-Features aktiviert werden
+   * Verhindert für 3 Sekunden, dass diese als verdächtig erkannt werden
+   */
+  markAccessibilityMode(): void {
+    this.accessibilityModeActiveUntil = Date.now() + 3000 // 3 Sekunden
+  }
+
+  /**
+   * Prüft, ob Accessibility-Mode aktiv ist
+   */
+  private isAccessibilityModeActive(): boolean {
+    return Date.now() < this.accessibilityModeActiveUntil
+  }
+
+  /**
    * Analysiert Session auf verdächtiges Verhalten
    */
   analyzeSession(): SessionAnalysis {
@@ -74,6 +90,16 @@ class SessionMonitor {
 
     const timeOnPage = (Date.now() - this.startTime) / 1000 // in Sekunden
     this.metrics.timeOnPage = timeOnPage
+
+    // Ignoriere verdächtiges Verhalten während Accessibility-Mode
+    if (this.isAccessibilityModeActive()) {
+      return {
+        isSuspicious: false,
+        riskLevel: 'low',
+        reasons: [],
+        recommendations: [],
+      }
+    }
 
     // Prüfe auf Bot-Muster: Zu schnelle Klicks
     // Nur als verdächtig, wenn mehr als 5 Klicks in kurzer Zeit
