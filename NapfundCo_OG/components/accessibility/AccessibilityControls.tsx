@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Accessibility, X, Eye, Type, Languages, Monitor, CheckCircle2 } from 'lucide-react'
+import { Accessibility, X, Eye, Type, Languages, Monitor } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { useDevice } from '@/hooks/useDevice'
 import {
   accessibilityEngine,
   type AccessibilitySettings,
@@ -11,6 +12,7 @@ import {
 
 export function AccessibilityControls() {
   const [isOpen, setIsOpen] = useState(false)
+  const { isMobile } = useDevice()
   const [settings, setSettings] = useState<AccessibilitySettings>(
     accessibilityEngine.getSettings()
   )
@@ -49,174 +51,188 @@ export function AccessibilityControls() {
 
   return (
     <>
-      {/* Toggle Button */}
+      {/* Toggle Button - responsiv positioniert */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-4 md:right-6 z-[60] rounded-full bg-primary-600 p-3 text-white shadow-xl hover:bg-primary-700 transition-all"
+        className={`fixed z-[70] rounded-full bg-primary-600 text-white shadow-xl hover:bg-primary-700 transition-all ${
+          isMobile
+            ? 'bottom-4 right-4 p-2.5'
+            : 'bottom-6 right-6 p-3'
+        }`}
         aria-label="Barrierefreiheitseinstellungen"
-        title="Barrierefreiheitseinstellungen"
+        title="Barrierefreiheit"
       >
-        <Accessibility className="h-5 w-5" aria-hidden="true" />
+        <Accessibility className={`${isMobile ? 'h-4 w-4' : 'h-5 w-5'}`} aria-hidden="true" />
       </button>
 
       {/* Controls Panel */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 100 }}
-            className="fixed bottom-20 right-4 md:right-6 z-[60] w-[calc(100vw-2rem)] md:w-80 max-h-[calc(100vh-8rem)] overflow-y-auto rounded-2xl border-2 border-primary-200 bg-white p-4 md:p-6 shadow-2xl"
-          >
-            <div className="flex items-start justify-between mb-4">
-              <h3 className="font-semibold text-warmgray-900">Barrierefreiheit</h3>
-              <button
+          <>
+            {/* Backdrop für Mobile */}
+            {isMobile && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 bg-black/20 z-[65]"
                 onClick={() => setIsOpen(false)}
-                className="rounded p-1 text-warmgray-400 hover:bg-warmgray-100 hover:text-warmgray-600"
-                aria-label="Schließen"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-
-            {/* Accessibility Score */}
-            {checkResult && (
-              <div className="mb-4 rounded-lg bg-primary-50 p-3">
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-sm font-medium text-primary-900">
-                    Barrierefreiheits-Score
-                  </span>
-                  <span className="text-lg font-bold text-primary-600">
-                    {checkResult.score}%
-                  </span>
-                </div>
-                {checkResult.issues.length > 0 && (
-                  <div className="mt-2 text-xs text-primary-700">
-                    {checkResult.issues.length} Problem(e) gefunden
-                  </div>
-                )}
-              </div>
+              />
             )}
-
-            <div className="space-y-4">
-              {/* Schriftgröße */}
-              <div>
-                <label className="mb-2 flex items-center gap-2 text-sm font-medium text-warmgray-700">
-                  <Type className="h-4 w-4" aria-hidden="true" />
-                  Schriftgröße
-                </label>
-                <div className="grid grid-cols-4 gap-2">
-                  {(['small', 'medium', 'large', 'xlarge'] as const).map((size) => (
-                    <button
-                      key={size}
-                      onClick={() => handleSettingChange('fontSize', size)}
-                      className={`rounded-lg border-2 px-3 py-2 text-xs font-medium transition-colors ${
-                        settings.fontSize === size
-                          ? 'border-primary-500 bg-primary-50 text-primary-700'
-                          : 'border-warmgray-200 text-warmgray-700 hover:border-primary-300'
-                      }`}
-                    >
-                      {size === 'small' ? 'S' : size === 'medium' ? 'M' : size === 'large' ? 'L' : 'XL'}
-                    </button>
-                  ))}
+            
+            <motion.div
+              initial={{ opacity: 0, y: isMobile ? 100 : 0, x: isMobile ? 0 : 100 }}
+              animate={{ opacity: 1, y: 0, x: 0 }}
+              exit={{ opacity: 0, y: isMobile ? 100 : 0, x: isMobile ? 0 : 100 }}
+              className={`fixed z-[70] bg-white shadow-2xl overflow-y-auto ${
+                isMobile
+                  ? 'bottom-0 left-0 right-0 rounded-t-2xl max-h-[80vh] p-4'
+                  : 'bottom-20 right-6 w-80 max-h-[calc(100vh-8rem)] rounded-2xl border-2 border-primary-200 p-6'
+              }`}
+            >
+              {/* Drag Handle für Mobile */}
+              {isMobile && (
+                <div className="flex justify-center mb-3">
+                  <div className="w-10 h-1 bg-warmgray-300 rounded-full" />
                 </div>
+              )}
+              
+              <div className="flex items-start justify-between mb-4">
+                <h3 className={`font-semibold text-warmgray-900 ${isMobile ? 'text-sm' : ''}`}>
+                  Barrierefreiheit
+                </h3>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="rounded p-1 text-warmgray-400 hover:bg-warmgray-100 hover:text-warmgray-600"
+                  aria-label="Schließen"
+                >
+                  <X className={`${isMobile ? 'h-4 w-4' : 'h-5 w-5'}`} />
+                </button>
               </div>
 
-              {/* Kontrast */}
-              <div>
-                <label className="mb-2 flex items-center gap-2 text-sm font-medium text-warmgray-700">
-                  <Eye className="h-4 w-4" aria-hidden="true" />
-                  Kontrast
-                </label>
-                <div className="grid grid-cols-3 gap-2">
-                  {(['normal', 'high', 'very-high'] as const).map((contrast) => (
-                    <button
-                      key={contrast}
-                      onClick={() => handleSettingChange('contrast', contrast)}
-                      className={`rounded-lg border-2 px-3 py-2 text-xs font-medium transition-colors ${
-                        settings.contrast === contrast
-                          ? 'border-primary-500 bg-primary-50 text-primary-700'
-                          : 'border-warmgray-200 text-warmgray-700 hover:border-primary-300'
-                      }`}
-                    >
-                      {contrast === 'normal'
-                        ? 'Normal'
-                        : contrast === 'high'
-                          ? 'Hoch'
-                          : 'Sehr hoch'}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Vereinfachte Sprache */}
-              <div className="flex items-center justify-between rounded-lg border-2 border-warmgray-200 p-3">
-                <div className="flex items-center gap-2">
-                  <Languages className="h-4 w-4 text-warmgray-600" aria-hidden="true" />
-                  <div>
-                    <p className="text-sm font-medium text-warmgray-900">
-                      Vereinfachte Sprache
-                    </p>
-                    <p className="text-xs text-warmgray-500">
-                      Einfachere Formulierungen
-                    </p>
+              {/* Accessibility Score */}
+              {checkResult && (
+                <div className={`mb-4 rounded-lg bg-primary-50 ${isMobile ? 'p-2' : 'p-3'}`}>
+                  <div className="flex items-center justify-between mb-1">
+                    <span className={`${isMobile ? 'text-xs' : 'text-sm'} font-medium text-primary-900`}>
+                      Score
+                    </span>
+                    <span className={`${isMobile ? 'text-base' : 'text-lg'} font-bold text-primary-600`}>
+                      {checkResult.score}%
+                    </span>
                   </div>
                 </div>
-                <label className="relative inline-flex items-center cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={settings.simplifiedLanguage}
-                    onChange={(e) => handleSettingChange('simplifiedLanguage', e.target.checked)}
-                    className="sr-only peer"
-                  />
-                  <div className="w-11 h-6 bg-warmgray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary-500 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-warmgray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
-                </label>
-              </div>
+              )}
 
-              {/* Screenreader-Optimierung */}
-              <div className="flex items-center justify-between rounded-lg border-2 border-warmgray-200 p-3">
-                <div className="flex items-center gap-2">
-                  <Monitor className="h-4 w-4 text-warmgray-600" aria-hidden="true" />
-                  <div>
-                    <p className="text-sm font-medium text-warmgray-900">
-                      Screenreader-Optimierung
-                    </p>
-                    <p className="text-xs text-warmgray-500">
-                      Verbesserte ARIA-Labels
-                    </p>
+              <div className={`space-y-3 ${isMobile ? 'space-y-2' : ''}`}>
+                {/* Schriftgröße */}
+                <div>
+                  <label className={`mb-2 flex items-center gap-2 ${isMobile ? 'text-xs' : 'text-sm'} font-medium text-warmgray-700`}>
+                    <Type className={`${isMobile ? 'h-3 w-3' : 'h-4 w-4'}`} aria-hidden="true" />
+                    Schriftgröße
+                  </label>
+                  <div className="grid grid-cols-4 gap-1.5">
+                    {(['small', 'medium', 'large', 'xlarge'] as const).map((size) => (
+                      <button
+                        key={size}
+                        onClick={() => handleSettingChange('fontSize', size)}
+                        className={`rounded-lg border-2 ${isMobile ? 'px-2 py-1.5 text-[10px]' : 'px-3 py-2 text-xs'} font-medium transition-colors ${
+                          settings.fontSize === size
+                            ? 'border-primary-500 bg-primary-50 text-primary-700'
+                            : 'border-warmgray-200 text-warmgray-700 hover:border-primary-300'
+                        }`}
+                      >
+                        {size === 'small' ? 'S' : size === 'medium' ? 'M' : size === 'large' ? 'L' : 'XL'}
+                      </button>
+                    ))}
                   </div>
                 </div>
-                <label className="relative inline-flex items-center cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={settings.screenReaderOptimized}
-                    onChange={(e) =>
-                      handleSettingChange('screenReaderOptimized', e.target.checked)
-                    }
-                    className="sr-only peer"
-                  />
-                  <div className="w-11 h-6 bg-warmgray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary-500 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-warmgray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-600"></div>
-                </label>
-              </div>
-            </div>
 
-            <div className="mt-4 pt-4 border-t border-warmgray-200">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => {
-                  accessibilityEngine.reset()
-                  setSettings(accessibilityEngine.getSettings())
-                }}
-                className="w-full"
-              >
-                Zurücksetzen
-              </Button>
-            </div>
-          </motion.div>
+                {/* Kontrast */}
+                <div>
+                  <label className={`mb-2 flex items-center gap-2 ${isMobile ? 'text-xs' : 'text-sm'} font-medium text-warmgray-700`}>
+                    <Eye className={`${isMobile ? 'h-3 w-3' : 'h-4 w-4'}`} aria-hidden="true" />
+                    Kontrast
+                  </label>
+                  <div className="grid grid-cols-3 gap-1.5">
+                    {(['normal', 'high', 'very-high'] as const).map((contrast) => (
+                      <button
+                        key={contrast}
+                        onClick={() => handleSettingChange('contrast', contrast)}
+                        className={`rounded-lg border-2 ${isMobile ? 'px-2 py-1.5 text-[10px]' : 'px-3 py-2 text-xs'} font-medium transition-colors ${
+                          settings.contrast === contrast
+                            ? 'border-primary-500 bg-primary-50 text-primary-700'
+                            : 'border-warmgray-200 text-warmgray-700 hover:border-primary-300'
+                        }`}
+                      >
+                        {contrast === 'normal' ? 'Normal' : contrast === 'high' ? 'Hoch' : 'Max'}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Vereinfachte Sprache */}
+                <div className={`flex items-center justify-between rounded-lg border-2 border-warmgray-200 ${isMobile ? 'p-2' : 'p-3'}`}>
+                  <div className="flex items-center gap-2">
+                    <Languages className={`${isMobile ? 'h-3 w-3' : 'h-4 w-4'} text-warmgray-600`} aria-hidden="true" />
+                    <div>
+                      <p className={`${isMobile ? 'text-xs' : 'text-sm'} font-medium text-warmgray-900`}>
+                        Einfache Sprache
+                      </p>
+                    </div>
+                  </div>
+                  <label className="relative inline-flex items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={settings.simplifiedLanguage}
+                      onChange={(e) => handleSettingChange('simplifiedLanguage', e.target.checked)}
+                      className="sr-only peer"
+                    />
+                    <div className={`${isMobile ? 'w-9 h-5' : 'w-11 h-6'} bg-warmgray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary-500 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-warmgray-300 after:border after:rounded-full ${isMobile ? 'after:h-4 after:w-4' : 'after:h-5 after:w-5'} after:transition-all peer-checked:bg-primary-600`}></div>
+                  </label>
+                </div>
+
+                {/* Screenreader-Optimierung */}
+                <div className={`flex items-center justify-between rounded-lg border-2 border-warmgray-200 ${isMobile ? 'p-2' : 'p-3'}`}>
+                  <div className="flex items-center gap-2">
+                    <Monitor className={`${isMobile ? 'h-3 w-3' : 'h-4 w-4'} text-warmgray-600`} aria-hidden="true" />
+                    <div>
+                      <p className={`${isMobile ? 'text-xs' : 'text-sm'} font-medium text-warmgray-900`}>
+                        Screenreader
+                      </p>
+                    </div>
+                  </div>
+                  <label className="relative inline-flex items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={settings.screenReaderOptimized}
+                      onChange={(e) =>
+                        handleSettingChange('screenReaderOptimized', e.target.checked)
+                      }
+                      className="sr-only peer"
+                    />
+                    <div className={`${isMobile ? 'w-9 h-5' : 'w-11 h-6'} bg-warmgray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary-500 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-warmgray-300 after:border after:rounded-full ${isMobile ? 'after:h-4 after:w-4' : 'after:h-5 after:w-5'} after:transition-all peer-checked:bg-primary-600`}></div>
+                  </label>
+                </div>
+              </div>
+
+              <div className={`mt-4 pt-3 border-t border-warmgray-200 ${isMobile ? 'pb-4' : ''}`}>
+                <Button
+                  variant="outline"
+                  size={isMobile ? 'sm' : 'default'}
+                  onClick={() => {
+                    accessibilityEngine.reset()
+                    setSettings(accessibilityEngine.getSettings())
+                  }}
+                  className="w-full"
+                >
+                  Zurücksetzen
+                </Button>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>
   )
 }
-

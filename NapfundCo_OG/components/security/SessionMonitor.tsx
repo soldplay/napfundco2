@@ -2,13 +2,16 @@
 
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Shield, AlertTriangle, CheckCircle2 } from 'lucide-react'
+import { AlertTriangle, X } from 'lucide-react'
 import { sessionMonitor } from '@/lib/session-monitor'
 import { botDetector, type BotDetectionResult } from '@/lib/bot-detection'
+import { useDevice } from '@/hooks/useDevice'
 
 export function SessionMonitorComponent() {
   const [detectionResult, setDetectionResult] = useState<BotDetectionResult | null>(null)
   const [isMonitoring, setIsMonitoring] = useState(true)
+  const [isDismissed, setIsDismissed] = useState(false)
+  const { isMobile } = useDevice()
 
   useEffect(() => {
     if (!isMonitoring) return
@@ -59,7 +62,7 @@ export function SessionMonitorComponent() {
     }
   }, [isMonitoring])
 
-  if (!detectionResult || !detectionResult.analysis.isSuspicious) {
+  if (!detectionResult || !detectionResult.analysis.isSuspicious || isDismissed) {
     return null
   }
 
@@ -71,25 +74,40 @@ export function SessionMonitorComponent() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
-        className="fixed top-20 left-4 md:left-6 z-[60] w-[calc(100vw-2rem)] md:w-80 rounded-xl border-2 border-yellow-200 bg-yellow-50 p-4 shadow-xl"
+        className={`fixed z-[60] rounded-xl border-2 border-yellow-200 bg-yellow-50 shadow-xl ${
+          isMobile
+            ? 'top-20 left-2 right-2 p-3'
+            : 'top-24 left-6 w-80 p-4'
+        }`}
       >
-        <div className="flex items-start gap-3">
-          <AlertTriangle className="h-5 w-5 text-yellow-600 mt-0.5" aria-hidden="true" />
-          <div className="flex-1">
-            <h3 className="font-semibold text-yellow-900 mb-2">
-              Verdächtiges Verhalten erkannt
-            </h3>
-            <p className="text-sm text-yellow-700 mb-2">
-              Risiko-Level: <strong>{analysis.riskLevel}</strong> ({confidence}% Confidence)
+        <div className="flex items-start gap-2">
+          <AlertTriangle className={`${isMobile ? 'h-4 w-4' : 'h-5 w-5'} text-yellow-600 mt-0.5 flex-shrink-0`} aria-hidden="true" />
+          <div className="flex-1 min-w-0">
+            <div className="flex items-start justify-between gap-2">
+              <h3 className={`font-semibold text-yellow-900 ${isMobile ? 'text-xs' : 'text-sm'}`}>
+                Verdächtiges Verhalten
+              </h3>
+              <button
+                onClick={() => setIsDismissed(true)}
+                className="rounded p-1 text-yellow-600 hover:bg-yellow-100"
+                aria-label="Schließen"
+              >
+                <X className="h-3 w-3" />
+              </button>
+            </div>
+            <p className={`${isMobile ? 'text-[10px]' : 'text-xs'} text-yellow-700 mt-1`}>
+              Risiko: <strong>{analysis.riskLevel}</strong> ({confidence}%)
             </p>
-            <ul className="text-xs text-yellow-700 space-y-1 mb-3">
-              {analysis.reasons.map((reason, idx) => (
-                <li key={idx}>• {reason}</li>
-              ))}
-            </ul>
+            {!isMobile && (
+              <ul className="text-xs text-yellow-700 space-y-0.5 mt-2">
+                {analysis.reasons.slice(0, 2).map((reason, idx) => (
+                  <li key={idx} className="truncate">• {reason}</li>
+                ))}
+              </ul>
+            )}
             {action !== 'none' && (
-              <p className="text-xs font-medium text-yellow-900">
-                Aktion: {action === 'captcha' ? 'Captcha angezeigt' : action === 'restrict' ? 'Funktionen eingeschränkt' : 'Wird überwacht'}
+              <p className={`${isMobile ? 'text-[10px]' : 'text-xs'} font-medium text-yellow-900 mt-1`}>
+                {action === 'captcha' ? 'Captcha aktiviert' : action === 'restrict' ? 'Eingeschränkt' : 'Überwacht'}
               </p>
             )}
           </div>
@@ -98,4 +116,3 @@ export function SessionMonitorComponent() {
     </AnimatePresence>
   )
 }
-
