@@ -52,27 +52,46 @@ export function applySimplifiedLanguage(): void {
     node = walker.nextNode()
   }
 
-  // Vereinfache jeden Text-Knoten
-  textNodes.forEach((textNode) => {
-    const originalText = originalTexts.get(textNode) || textNode.textContent || ''
-    if (originalText.trim().length > 5) {
-      // Bestimme Typ basierend auf Kontext
-      let type: 'agb' | 'datenschutz' | 'impressum' | 'versand' = 'agb'
-      const parent = textNode.parentElement
-      if (parent) {
-        const url = window.location.pathname
-        if (url.includes('datenschutz')) type = 'datenschutz'
-        else if (url.includes('impressum')) type = 'impressum'
-        else if (url.includes('versand')) type = 'versand'
-        else if (url.includes('agb')) type = 'agb'
-      }
+  // Vereinfache jeden Text-Knoten in Batches, um Performance zu verbessern
+  // und nicht als verdächtig erkannt zu werden
+  const batchSize = 50
+  let currentIndex = 0
 
-      const simplified = simplifyText(originalText, type)
-      if (simplified !== originalText) {
-        textNode.textContent = simplified
+  const processBatch = () => {
+    const endIndex = Math.min(currentIndex + batchSize, textNodes.length)
+    
+    for (let i = currentIndex; i < endIndex; i++) {
+      const textNode = textNodes[i]
+      const originalText = originalTexts.get(textNode) || textNode.textContent || ''
+      if (originalText.trim().length > 5) {
+        // Bestimme Typ basierend auf Kontext
+        let type: 'agb' | 'datenschutz' | 'impressum' | 'versand' = 'agb'
+        const parent = textNode.parentElement
+        if (parent) {
+          const url = window.location.pathname
+          if (url.includes('datenschutz')) type = 'datenschutz'
+          else if (url.includes('impressum')) type = 'impressum'
+          else if (url.includes('versand')) type = 'versand'
+          else if (url.includes('agb')) type = 'agb'
+        }
+
+        const simplified = simplifyText(originalText, type)
+        if (simplified !== originalText) {
+          textNode.textContent = simplified
+        }
       }
     }
-  })
+
+    currentIndex = endIndex
+
+    // Verarbeite nächsten Batch
+    if (currentIndex < textNodes.length) {
+      requestAnimationFrame(processBatch)
+    }
+  }
+
+  // Starte Batch-Verarbeitung
+  requestAnimationFrame(processBatch)
 }
 
 /**

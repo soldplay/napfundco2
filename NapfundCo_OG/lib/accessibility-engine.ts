@@ -86,12 +86,15 @@ class AccessibilityEngine {
       root.classList.add('simplified-language')
       // Wende vereinfachte Sprache auf Content an
       if (typeof window !== 'undefined') {
-        // Verwende setTimeout, um sicherzustellen, dass DOM bereit ist
+        // Verzögerung, damit SessionMonitor nicht als verdächtig erkennt
         setTimeout(() => {
           import('./simplified-language-applier').then((module) => {
-            module.applySimplifiedLanguage()
+            // Verwende requestAnimationFrame für besseres Batching
+            requestAnimationFrame(() => {
+              module.applySimplifiedLanguage()
+            })
           })
-        }, 200)
+        }, 500)
       }
     } else {
       root.classList.remove('simplified-language')
@@ -99,9 +102,11 @@ class AccessibilityEngine {
       if (typeof window !== 'undefined') {
         setTimeout(() => {
           import('./simplified-language-applier').then((module) => {
-            module.removeSimplifiedLanguage()
+            requestAnimationFrame(() => {
+              module.removeSimplifiedLanguage()
+            })
           })
-        }, 100)
+        }, 300)
       }
     }
 

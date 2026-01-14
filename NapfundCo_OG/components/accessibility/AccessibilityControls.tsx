@@ -205,26 +205,34 @@ export function AccessibilityControls() {
                 </div>
 
                 {/* Screenreader-Optimierung */}
-                <div className={`flex items-center justify-between rounded-lg border-2 border-warmgray-200 ${isMobile ? 'p-2' : 'p-3'}`}>
-                  <div className="flex items-center gap-2">
-                    <Monitor className={`${isMobile ? 'h-3 w-3' : 'h-4 w-4'} text-warmgray-600`} aria-hidden="true" />
-                    <div>
-                      <p className={`${isMobile ? 'text-xs' : 'text-sm'} font-medium text-warmgray-900`}>
-                        Screenreader
-                      </p>
+                <div className={`rounded-lg border-2 border-warmgray-200 ${isMobile ? 'p-2' : 'p-3'}`}>
+                  <div className="flex items-center justify-between mb-1">
+                    <div className="flex items-center gap-2">
+                      <Monitor className={`${isMobile ? 'h-3 w-3' : 'h-4 w-4'} text-warmgray-600`} aria-hidden="true" />
+                      <div>
+                        <p className={`${isMobile ? 'text-xs' : 'text-sm'} font-medium text-warmgray-900`}>
+                          Screenreader-Optimierung
+                        </p>
+                        <p className={`${isMobile ? 'text-[10px]' : 'text-xs'} text-warmgray-500 mt-0.5`}>
+                          Optimiert für NVDA, JAWS, VoiceOver
+                        </p>
+                      </div>
                     </div>
+                    <label className="relative inline-flex items-center cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={settings.screenReaderOptimized}
+                        onChange={(e) =>
+                          handleSettingChange('screenReaderOptimized', e.target.checked)
+                        }
+                        className="sr-only peer"
+                      />
+                      <div className={`${isMobile ? 'w-9 h-5' : 'w-11 h-6'} bg-warmgray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary-500 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-warmgray-300 after:border after:rounded-full ${isMobile ? 'after:h-4 after:w-4' : 'after:h-5 after:w-5'} after:transition-all peer-checked:bg-primary-600`}></div>
+                    </label>
                   </div>
-                  <label className="relative inline-flex items-center cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={settings.screenReaderOptimized}
-                      onChange={(e) =>
-                        handleSettingChange('screenReaderOptimized', e.target.checked)
-                      }
-                      className="sr-only peer"
-                    />
-                    <div className={`${isMobile ? 'w-9 h-5' : 'w-11 h-6'} bg-warmgray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary-500 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-warmgray-300 after:border after:rounded-full ${isMobile ? 'after:h-4 after:w-4' : 'after:h-5 after:w-5'} after:transition-all peer-checked:bg-primary-600`}></div>
-                  </label>
+                  <p className={`${isMobile ? 'text-[10px]' : 'text-xs'} text-warmgray-600 mt-1`}>
+                    Verbessert ARIA-Labels und Tastatur-Navigation für Screenreader-Software
+                  </p>
                 </div>
               </div>
 
